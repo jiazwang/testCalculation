@@ -1,0 +1,99 @@
+{% block titleblock %}
+
+<title>Oliver | Airapp</title> 
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" 
+ type="text/css" media="all" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" 
+ type="text/javascript">
+</script> <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" 
+ type="text/javascript"></script>
+
+<!-- Proper style would be to put this stuff in its own .js file, but I'm going to be lazy -->
+<script> 
+	$(document).ready(function() {
+		console.log("Testing ...");
+
+		$(function() {
+		  $("#id_code1").autocomplete({
+		    source: "/airapp/get_names/",
+		    minLength: 2,
+		  });
+		});
+
+		$(function() {
+		  $("#id_code2").autocomplete({
+		    source: "/airapp/get_names/",
+		    minLength: 2,
+		  });
+		});
+
+	}); 
+</script>
+
+{% endblock %}
+
+{% block sidebar %} 
+
+	<b><a href='/'>HOME</a></b>
+	<br>
+	<br>
+	<b><a href='/article/all/'>Sitemap</a></b>
+	<br>
+	<br>
+
+{% endblock %}  
+
+{% block content %}
+
+<div class="text2">
+
+	<h2>Airport App <i>(Testing 1, 2, 3 ...)</i></h2>
+	<br>
+
+	<h3>
+	To find the distance in miles between two airports, 
+	enter two U.S. cities below and select the airport codes 
+	from the lists that appear.
+	</h3>
+
+	Example entries:
+	<ul>
+	<li>NewYork,NY-Kennedy <b>JFK</b></li>
+	<li>LosAngeles,CA <b>LAX</b></li>
+	<li>Chicago,IL-O'Hare <b>ORD</b></li>
+	</ul>
+
+	<br>
+
+	<form action="/airapp/test/" method="post">{% csrf_token %}
+
+		<p>
+		<div class="ui-widget">
+		<label for="id_code1">Code1:</label>
+		<input id="id_code1" type="text" name="code1" maxlength="100" />
+		</div>
+		</p>
+
+		<p>
+		<div class="ui-widget">
+		<label for="id_code2">Code2:</label>
+		<input id="id_code2" type="text" name="code2" maxlength="100" />
+		</div>
+		</p>
+
+		<input type="submit" value="Submit" />
+
+	</form>
+
+	<br>
+	<br>
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<small>© 2014 Oliver</small>
+  
+{% endblock %}

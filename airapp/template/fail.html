@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block titleblock %}
+<title>Oliver | Airapp</title> 
+{% endblock %}
+
+{% block sidebar %} 
+
+<div class="text2">
+
+	<b><a href='/'>HOME</a></b>
+	<br>
+	<br>
+	<b><a href='/article/all/'>Sitemap</a></b>
+	<br>
+	<br>
+</div>
+
+{% endblock %}  
+
+{% block content %}
+
+<div class="text2">
+
+	<br> <br>
+	<h2>
+	<i>Oh no!</i>
+	<br>
+	<br>
+	Those airports were not found in the database.
+	</h2>
+	<br>
+
+	<b><a href="/airapp/test/">back</a></b>
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<small>© 2014 Oliver</small>
+  
+{% endblock %}
